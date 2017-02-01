@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jk on 2017-02-01.
@@ -20,14 +19,14 @@ import java.util.List;
 public class ImageListViewAdapter extends ArrayAdapter<String> {
 
     private Context context;
-    private ArrayList<String> imageUrls;
+    //private ArrayList<String> imageUrls;
 
     private LayoutInflater inflater;
 
     public ImageListViewAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
         this.context = context;
-        this.imageUrls = objects;
+        //this.imageUrls = objects;
 
         inflater = LayoutInflater.from(context);
     }
@@ -36,7 +35,8 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
-            convertView = inflater.inflate(R.layout.single_image_item_layout, parent, false);
+            boolean attachToRoot = false;
+            convertView = inflater.inflate(R.layout.single_image_item_layout, parent, attachToRoot);
         }
 
         String url = getItem(position);
