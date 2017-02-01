@@ -21,6 +21,8 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
     private Context context;
     private LayoutInflater inflater;
 
+    private ViewHolder holder;
+
     public ImageListViewAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
         this.context = context;
@@ -34,7 +36,15 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
         if(convertView == null) {
             boolean attachToRoot = false;
             convertView = inflater.inflate(R.layout.single_image_item_layout, parent, attachToRoot);
+
+            holder = new ViewHolder();
+            holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
+
+
 
         String url = getItem(position);
 
@@ -43,8 +53,12 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
                 .load(url)
                 .centerCrop()
                 .resizeDimen(R.dimen.activity_image_width, R.dimen.activity_image_height)
-                .into((ImageView) convertView);
+                .into(holder.imageView);
 
         return convertView;
+    }
+
+    private class ViewHolder {
+        ImageView imageView;
     }
 }
