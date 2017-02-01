@@ -1,5 +1,9 @@
 package com.example.jk.superduperimagedownloader;
 
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,10 +46,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, "Toasty " + position, Toast.LENGTH_SHORT).show();
 
-                //This will show the fullscreen/larger image
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null){
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
 
-                //Create Intent and give it the position that can be parsed at the receiving end
-
+                DialogFragment fullScreenImageFragment = FullScreenImageFragment.newInstance(position);
+                fullScreenImageFragment.show(ft, "dialog");
             }
         });
     }

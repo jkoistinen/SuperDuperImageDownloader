@@ -44,8 +44,6 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-
-
         String url = getItem(position);
 
         Picasso
