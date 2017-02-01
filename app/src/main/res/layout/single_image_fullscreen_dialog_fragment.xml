@@ -5,8 +5,8 @@
     android:background="@color/colorAccent">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="@dimen/activity_image_large_width"
+        android:layout_height="@dimen/activity_image_large_height"
         android:id="@+id/imageViewFullScreen" />
 
 </LinearLayout>

@@ -5,4 +5,7 @@
     
     <dimen name="activity_image_width">200dp</dimen>
     <dimen name="activity_image_height">200dp</dimen>
+
+    <dimen name="activity_image_large_width">400dp</dimen>
+    <dimen name="activity_image_large_height">400dp</dimen>
 </resources>
