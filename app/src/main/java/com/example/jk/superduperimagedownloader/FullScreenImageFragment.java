@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -42,9 +41,13 @@ public class FullScreenImageFragment extends DialogFragment {
         View v = inflater.inflate(R.layout.single_image_fullscreen_dialog_fragment, container, false);
         ImageView imageView = (ImageView) v.findViewById(R.id.imageViewFullScreen);
 
+        MainActivity.imageUrls.get(position);
+
         Picasso
                 .with(getActivity().getApplicationContext())
-                .load("http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg")
+                .load(MainActivity.imageUrls.get(position))
+                .centerCrop()
+                .resize(400, 400)
                 .into(imageView);
 
         return v;
