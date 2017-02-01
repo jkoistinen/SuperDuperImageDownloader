@@ -19,14 +19,11 @@ import java.util.ArrayList;
 public class ImageListViewAdapter extends ArrayAdapter<String> {
 
     private Context context;
-    //private ArrayList<String> imageUrls;
-
     private LayoutInflater inflater;
 
     public ImageListViewAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
         this.context = context;
-        //this.imageUrls = objects;
 
         inflater = LayoutInflater.from(context);
     }
