@@ -38,20 +38,12 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
         if(convertView == null) {
             convertView = inflater.inflate(R.layout.single_image_item_layout, parent, false);
         }
-//                Picasso.with(context).load("http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg")
-//                .centerCrop()
-//                .resizeDimen(R.dimen.activity_image_width, R.dimen.activity_image_height)
-//                .into(imageview1);
 
-//        Picasso
-//                .with(context)
-//                .load(imageUrls.get(0))
-//                .fit()
-//                .into((ImageView) convertView);
+        String url = getItem(position);
 
         Picasso
                 .with(context)
-                .load(imageUrls.get(0))
+                .load(url)
                 .centerCrop()
                 .resizeDimen(R.dimen.activity_image_width, R.dimen.activity_image_height)
                 .into((ImageView) convertView);
