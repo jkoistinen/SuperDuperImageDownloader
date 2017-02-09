@@ -47,7 +47,7 @@ public class FullScreenImageFragment extends DialogFragment {
                 .with(getActivity().getApplicationContext())
                 .load(MainActivity.imageUrls.get(position))
                 .centerCrop()
-                .resize(400, 400)
+                .fit()
                 .into(imageView);
 
         return v;
