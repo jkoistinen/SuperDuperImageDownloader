@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,15 +26,6 @@ public class MainActivity extends AppCompatActivity {
         imageUrls.add(0, "http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg");
         imageUrls.add(1, "http://cfa.org/portals/0/Images/breeds/DRex/profile2.jpg");
         imageUrls.add(2, "http://s2.dmcdn.net/eINkN/1280x720-Oee.png");
-        imageUrls.add(3, "http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg");
-        imageUrls.add(4, "http://cfa.org/portals/0/Images/breeds/DRex/profile2.jpg");
-        imageUrls.add(5, "http://s2.dmcdn.net/eINkN/1280x720-Oee.png");
-        imageUrls.add(6, "http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg");
-        imageUrls.add(7, "http://cfa.org/portals/0/Images/breeds/DRex/profile2.jpg");
-        imageUrls.add(8, "http://s2.dmcdn.net/eINkN/1280x720-Oee.png");
-        imageUrls.add(9, "http://d39kbiy71leyho.cloudfront.net/wp-content/uploads/2016/05/09170020/cats-politics-TN.jpg");
-        imageUrls.add(10, "http://cfa.org/portals/0/Images/breeds/DRex/profile2.jpg");
-        imageUrls.add(11, "http://s2.dmcdn.net/eINkN/1280x720-Oee.png");
 
         ListView listview = (ListView) findViewById(R.id.listView);
 
@@ -56,5 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 fullScreenImageFragment.show(ft, "dialog");
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        imageUrls.clear();
+        super.onDestroy();
     }
 }
